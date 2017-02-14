@@ -1,5 +1,6 @@
 package sorts;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -11,11 +12,12 @@ public class SortExecutor {
 	}
 	
 	public static void main(String [] args) {
-		Integer[] arrayOfIntsOne = SortUtils.randomArray(30000);
-		Integer[] arrayOfIntsTwo = SortUtils.randomArray(30000);
+		Integer[] arrayOfIntsBase = SortUtils.randomArray(50000);
 		
-		SortExecutor.exec(SortType.SELECTION, arrayOfIntsOne);
-		SortExecutor.exec(SortType.SELECTION, arrayOfIntsTwo);
+		SortExecutor.exec(SortType.SELECTION, Arrays.copyOf(arrayOfIntsBase, 50000));
+		SortExecutor.exec(SortType.SELECTION, Arrays.copyOf(arrayOfIntsBase, 50000));
+		SortExecutor.exec(SortType.INSERTION, Arrays.copyOf(arrayOfIntsBase, 50000));
+		SortExecutor.exec(SortType.INSERTION, Arrays.copyOf(arrayOfIntsBase, 50000));
 	}
 	
 	public static void exec(SortType type, Integer[] arrayToSort) {

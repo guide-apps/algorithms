@@ -4,6 +4,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.Test;
 
+import utils.sorts.SortExecutor;
+import utils.sorts.SortUtils;
+
 public class InsertionSortTest {
 
 	private Integer[] orederedArray = SortUtils.orderedArray(1000);

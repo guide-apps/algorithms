@@ -27,7 +27,7 @@ public class Benchmark {
 		final long end = sysout.get();
 		final long timeElapsed = end - start;
 		
-		System.out.format("Time elapsed: %d\n", timeElapsed);
+		System.out.format("%d - Time elapsed: %d\n", System.currentTimeMillis(), timeElapsed);
 		return timeElapsed;
 	}
 	

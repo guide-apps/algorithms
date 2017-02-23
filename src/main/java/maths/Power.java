@@ -6,7 +6,7 @@ public class Power {
 		if (exponent == 1) return base;
 		
 		if (exponent < 0)
-			return (exponent*-1)/base;
+			return 1/Power.powRecursive(base, exponent*-1);
 		
 		if (exponent % 2 == 0) {
 			double half = Power.powRecursive(base,  exponent/2);

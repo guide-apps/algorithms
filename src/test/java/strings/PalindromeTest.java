@@ -1,37 +1,46 @@
 package strings;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import org.junit.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class PalindromeTest {
 
 	@Test
 	public void valid() {
-		assertThat(new Palindrome().isPalindrome("aoroa")).isTrue();
-		assertThat(new Palindrome().isPalindrome("arara")).isTrue();
-		assertThat(new Palindrome().isPalindrome("asdffdsa")).isTrue();
-	}
+		assertThat(new Palindrome("aoroa").isPalindrome()).isTrue();
+		assertThat(new Palindrome("arara").isPalindrome()).isTrue();
+        assertThat(new Palindrome("asdffdsa").isPalindrome()).isTrue();
+        assertThat(new Palindrome("arra").isPalindrome()).isTrue();
+    }
 	
 	@Test
 	public void invalid() {
-		assertThat(new Palindrome().isPalindrome("great")).isFalse();
-		assertThat(new Palindrome().isPalindrome("job")).isFalse();
-		assertThat(new Palindrome().isPalindrome("algorithms")).isFalse();
+		assertThat(new Palindrome("great").isPalindrome()).isFalse();
+		assertThat(new Palindrome("job").isPalindrome()).isFalse();
+		assertThat(new Palindrome("algorithms").isPalindrome()).isFalse();
 	}
 	
 	@Test
 	public void getFirstChar() {
-		assertThat(new Palindrome().getFirstChar("great")).isEqualTo("g");
+		assertThat(Palindrome.getFirstChar("great")).isEqualTo("g");
 	}
 	
 	@Test
 	public void getLastChar() {
-		assertThat(new Palindrome().getLastChar("great")).isEqualTo("t");
+		assertThat(Palindrome.getLastChar("great")).isEqualTo("t");
 	}
 	
 	@Test
 	public void getMiddleWord() {
-		assertThat(new Palindrome().getMiddleWord("great")).isEqualTo("rea");
+		assertThat(Palindrome.getMiddleWord("great")).isEqualTo("rea");
+		assertThat(Palindrome.getMiddleWord("ga")).isEqualTo("");
+		assertThat(Palindrome.getMiddleWord("g")).isEqualTo("");
 	}
+
+	@Test
+    public void charCompare() {
+	    assertThat(Palindrome.getFirstChar("a")).isEqualTo("a");
+        assertThat(Palindrome.getLastChar("a")).isEqualTo("a");
+    }
 }

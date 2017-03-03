@@ -1,29 +1,35 @@
 package strings;
 
 public class Palindrome {
+    final String word;
 
-	public boolean isPalindrome(final String str) {
-		return checkWord(str);
+    public Palindrome(final String word) {
+        this.word = word;
+    }
+
+    public boolean isPalindrome() {
+		return checkWord(this.word);
 	}
 	
 	private boolean checkWord(final String str) {
-		if (str.length() <= 1)
+		if (str.length() <= 0)
 			return true;
-		if (!getFirstChar(str).equals(getLastChar(str)))
-			return false;
-		
-		return checkWord(getMiddleWord(str));
+
+		return getFirstChar(str).equals(getLastChar(str)) && checkWord(getMiddleWord(str));
 	}
 
-	String getMiddleWord(String str) {
+	public static String getMiddleWord(String str) {
+		if (str.length() == 1)
+			return "";
+
 		return str.substring(1, str.length()-1);
 	}
 
-	String getLastChar(String str) {
+    public static String getLastChar(String str) {
 		return str.substring(str.length()-1);
 	}
 
-	String getFirstChar(String str) {
+    public static String getFirstChar(String str) {
 		return str.substring(0, 1);
 	}
 }
